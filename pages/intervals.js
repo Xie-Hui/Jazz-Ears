@@ -2,11 +2,11 @@ import Layout from './layout';
 import layout from '../styles/Layout.module.scss';
 import styles from '../styles/Intervals.module.scss';
 import { useEffect, useState } from 'react';
-import { interval as Interval, note as Note } from 'sharp11';
+import { note as Note } from 'sharp11';
 import * as Tone from 'tone';
-import { pickRandomly } from './utils/utils';
-import { INTERVALS } from './constants/intervals';
-import { RANGE } from './constants/notes';
+import { pickRandomly } from '../utils/utils';
+import { INTERVALS } from '../constants/intervals';
+import { RANGE } from '../constants/notes';
 
 const MAX_NOTES_COUNT = 5;
 const ASC = '↑';

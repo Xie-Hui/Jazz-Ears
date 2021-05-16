@@ -1,0 +1,10 @@
+.chordName {
+  font-size: 5rem;
+}
+.chordTones {
+  display: flex;
+  align-items: center;
+  .tone {
+    margin: 0.5em;
+  }
+}
