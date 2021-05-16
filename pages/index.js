@@ -1,15 +1,14 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Home.module.scss';
 import layout from '../styles/Layout.module.scss';
 import Layout from './layout';
-import Trumpet from '../public/jazz-icon.svg';
+import Trumpet from '../utils/jazz-icon.svg';
 
 export default function Home() {
   return (
     <Layout withHomeIcon={false}>
       <h1 className={styles.title}>
-        <Image src={Trumpet} width={80} height={80} />
+        <img src={Trumpet} />
         Jazzy Ears!
       </h1>
       <p className={styles.description}>

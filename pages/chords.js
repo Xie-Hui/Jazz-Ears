@@ -3,7 +3,6 @@ import { chord as Chord } from 'sharp11';
 import { useState } from 'react';
 import { pickRandomly } from '../utils/utils';
 import { SEVENTH_CHORDS } from '../constants/chords';
-import layout from '../styles/Layout.module.scss';
 import styles from '../styles/Chords.module.scss';
 import { FLAT } from '../constants/notes';
 

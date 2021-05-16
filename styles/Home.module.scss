@@ -6,6 +6,10 @@
   font-size: 4rem;
   display: flex;
   align-items: center;
+  img {
+    height: 80px;
+    width: 80px;
+  }
   a {
     color: variables.$blue-color;
     text-decoration: none;
