@@ -3,7 +3,11 @@ import Trumpet from '../utils/jazz-icon.svg';
 import layout from '../styles/Layout.module.scss';
 import Link from 'next/link';
 import { BASE_PATH } from '../constants/env';
-export default function Layout({ withHomeIcon = true, children }) {
+export default function Layout({
+  withHomeIcon = true,
+  withFooter = false,
+  children,
+}) {
   return (
     <div className={layout.container}>
       <Head>
@@ -15,7 +19,7 @@ export default function Layout({ withHomeIcon = true, children }) {
         <title>Jazzy Ears!</title>
       </Head>
       {withHomeIcon && (
-        <Link href="/index">
+        <Link href="/">
           <a className={layout.goHome}>
             <img src={Trumpet} />
             Jazzy Ears!
@@ -23,7 +27,12 @@ export default function Layout({ withHomeIcon = true, children }) {
         </Link>
       )}
       <main className={layout.main}>{children}</main>
-      {/* <footer>Hui Xie</footer> */}
+      <footer className={layout.footer}>
+        <div className={layout.footerContent}>
+          Developed by{' '}
+          <a href="https://github.com/Xie-Hui/Jazz-Ears">Hui Xie</a>
+        </div>
+      </footer>
     </div>
   );
 }

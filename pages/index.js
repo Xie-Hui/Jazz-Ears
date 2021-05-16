@@ -6,7 +6,7 @@ import Trumpet from '../utils/jazz-icon.svg';
 
 export default function Home() {
   return (
-    <Layout withHomeIcon={false}>
+    <Layout withHomeIcon={false} withFooter>
       <h1 className={styles.title}>
         <img src={Trumpet} />
         Jazzy Ears!
