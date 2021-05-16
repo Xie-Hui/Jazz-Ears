@@ -1,0 +1,12 @@
+.controlPanel {
+  position: fixed;
+  bottom: 10vh;
+  display: flex;
+  button {
+    min-width: 20vw;
+    text-align: center;
+  }
+}
+.viewPanel {
+  font-size: 5rem;
+}

@@ -1,5 +1,7 @@
+import Layout from './layout';
+
 function Chords() {
-  return <div>Chords</div>;
+  return <Layout>Chords</Layout>;
 }
 
 export default Chords;

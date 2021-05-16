@@ -1,5 +1,5 @@
 function Scales() {
-	return <div>Scales</div>;
+  return <div>Scales</div>;
 }
 
 export default Scales;
