@@ -9,10 +9,8 @@ import { FLAT } from '../constants/notes';
 function Chords() {
   const [chords, setChords] = useState([]);
   const chordId = pickRandomly(SEVENTH_CHORDS.keys);
-  console.log(chordId);
   const root = 'Db';
   const chord = Chord.create(root + chordId);
-  console.log(chord);
   return (
     <Layout>
       <div className={styles.chordName}>

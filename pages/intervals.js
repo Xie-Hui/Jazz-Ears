@@ -5,16 +5,13 @@ import { useEffect, useState } from 'react';
 import { note as Note } from 'sharp11';
 import * as Tone from 'tone';
 import { pickRandomly } from '../utils/utils';
-import { INTERVALS } from '../constants/intervals';
-import { RANGE } from '../constants/notes';
+import { ASC, DSC, INTERVALS } from '../constants/intervals';
+import { HALF_STEPS_TO_SCALE_DEGREE, RANGE } from '../constants/notes';
 
 const MAX_NOTES_COUNT = 5;
-const ASC = '↑';
-const DSC = '↓';
 
 const getRandomInterval = () => {
   const interval = pickRandomly([ASC, DSC]) + pickRandomly(INTERVALS['keys']);
-  console.log(interval);
   return interval;
 };
 
@@ -63,7 +60,6 @@ export default function Intervals() {
   }, [keyPressed]);
 
   const handlePrev = () => {
-    console.log('prev');
     setOffset(offset + 1);
   };
 
@@ -93,7 +89,6 @@ export default function Intervals() {
   };
 
   const handleCheck = () => {
-    console.log('check');
     synth.triggerAttack(
       notes[Math.max(0, notes.length - offset - 1)],
       '+0.0',
@@ -101,29 +96,46 @@ export default function Intervals() {
     );
   };
   const handleKeyDown = ({ keyCode }) => {
-    console.log('keyDown', keyCode);
     if (!keyPressed) {
       setKeyPressed(keyCode);
     }
   };
   const handleKeyUp = () => {
-    console.log('keyUp');
     if (keyPressed) {
       setKeyPressed(null);
     }
     synth.triggerRelease();
   };
   const showIntervalOrNotes = () => {
-    if (notes.length - offset - 1 <= 0 || keyPressed === 13) {
-      return notes[Math.max(0, notes.length - offset - 1)];
-    } else {
-      return intervals[Math.max(0, intervals.length - offset - 1)];
+    const note =
+      notes.length - offset - 1 <= 0 || keyPressed === 13 || keyPressed === 32
+        ? notes[Math.max(0, notes.length - offset - 1)]
+        : intervals[Math.max(0, intervals.length - offset - 1)];
+
+    return `${note}`;
+  };
+
+  const getScaleDegree = () => {
+    if (intervals.length === 0) {
+      return '1';
     }
+
+    const signedInterval =
+      intervals[Math.max(0, intervals.length - offset - 1)];
+    const direction = signedInterval.slice(0, 1);
+    const interval = signedInterval.slice(1);
+    //console.log(signedInterval, direction, interval);
+    const scaleDegree = INTERVALS[interval]['degree'][direction];
+
+    return direction + ' ' + scaleDegree;
   };
 
   return (
     <Layout>
-      <div className={styles.viewPanel}>{showIntervalOrNotes()}</div>
+      <div className={styles.viewPanel}>
+        <div className={styles.interval}>{showIntervalOrNotes()}</div>
+        <div className={styles.scaleDegree}>{getScaleDegree()}</div>
+      </div>
       <div className={styles.controlPanel}>
         <button onClick={() => handlePrev()} className={layout.button}>
           Previous

@@ -1,3 +1,5 @@
+@use 'variables';
+
 .controlPanel {
   position: fixed;
   bottom: 10vh;
@@ -8,5 +10,16 @@
   }
 }
 .viewPanel {
-  font-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .interval {
+    font-size: 8rem;
+  }
+  .scaleDegree {
+    margin-top: 2rem;
+    color: variables.$blue-color;
+    font-size: 2rem;
+  }
 }

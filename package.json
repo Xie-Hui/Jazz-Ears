@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true",
-    "build-export": "bash -c 'rm -fr ../jazzyears.github.io/{404.html,_next,index.html,posts} && npm run build && npx next export && cp -a out/. ../jazzyears.github.io'"
+    "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
   },
   "browser": {
     "fs": false

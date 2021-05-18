@@ -27,12 +27,14 @@ export default function Layout({
         </Link>
       )}
       <main className={layout.main}>{children}</main>
-      <footer className={layout.footer}>
-        <div className={layout.footerContent}>
-          Developed by{' '}
-          <a href="https://github.com/Xie-Hui/Jazz-Ears">Hui Xie</a>
-        </div>
-      </footer>
+      {withFooter && (
+        <footer className={layout.footer}>
+          <div className={layout.footerContent}>
+            Developed by{' '}
+            <a href="https://github.com/Xie-Hui/Jazz-Ears">Hui Xie</a>
+          </div>
+        </footer>
+      )}
     </div>
   );
 }
