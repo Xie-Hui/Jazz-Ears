@@ -6,7 +6,7 @@ import { note as Note } from 'sharp11';
 import * as Tone from 'tone';
 import { pickRandomly } from '../utils/utils';
 import { ASC, DSC, INTERVALS } from '../constants/intervals';
-import { HALF_STEPS_TO_SCALE_DEGREE, RANGE } from '../constants/notes';
+import { RANGE } from '../constants/notes';
 
 const MAX_NOTES_COUNT = 5;
 
@@ -115,26 +115,10 @@ export default function Intervals() {
     return `${note}`;
   };
 
-  const getScaleDegree = () => {
-    if (intervals.length === 0) {
-      return '1';
-    }
-
-    const signedInterval =
-      intervals[Math.max(0, intervals.length - offset - 1)];
-    const direction = signedInterval.slice(0, 1);
-    const interval = signedInterval.slice(1);
-    //console.log(signedInterval, direction, interval);
-    const scaleDegree = INTERVALS[interval]['degree'][direction];
-
-    return direction + ' ' + scaleDegree;
-  };
-
   return (
     <Layout>
       <div className={styles.viewPanel}>
         <div className={styles.interval}>{showIntervalOrNotes()}</div>
-        <div className={styles.scaleDegree}>{getScaleDegree()}</div>
       </div>
       <div className={styles.controlPanel}>
         <button onClick={() => handlePrev()} className={layout.button}>
