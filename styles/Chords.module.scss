@@ -8,3 +8,32 @@
     margin: 0.5em;
   }
 }
+.controlPanel {
+  position: fixed;
+  bottom: 10vh;
+  display: flex;
+  button {
+    min-width: 20vw;
+    text-align: center;
+  }
+}
+.settingPanel {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .settingItem {
+    display: flex;
+    width: 100%;
+    font-size: 0.8rem;
+    align-self: center;
+    input[type='checkbox'] {
+      transform: scale(0.9);
+    }
+    label {
+      padding-top: 2px;
+    }
+  }
+}
